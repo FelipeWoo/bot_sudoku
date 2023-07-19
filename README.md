@@ -1,90 +1,100 @@
-# Instructions
+# Sudoku Solver
 
-## Install virtual env
+This is a Sudoku solver script that automates the solving process using Selenium and Python. It is a bot scraper that reads a Sudoku puzzle from a web page and solves it. The solved solution is then automatically filled in on the Sudoku web page.
 
+## Instructions
+
+To use the Sudoku solver, follow the instructions below:
+
+## Installation
+
+1. Install virtualenv:
+
+    ```shell
     $ pip install virtualenv
+    ```
 
-## Create a virtual enviroment with a name
+2. Create a virtual environment with the name "sudoku":
 
+    ```shell
     $ virtualenv sudoku
+    ```
 
-## Activate the enviroment
+3. Activate the virtual environment:
 
+    ```shell
     $ source ./sudoku/bin/activate
+    ```
 
-## Install webdriver manager
+4. Install the required dependencies:
 
-    $ pip install webdriver_manager
+    ```shell
+    $ pip install -r requirements.txt
+    ```
 
-## Install selenium
+## Setup WebDriver
 
-    $ pip install selenium
+1. Download the compatible version of ChromeDriver based on your Google Chrome version from [https://chromedriver.chromium.org/](https://chromedriver.chromium.org/).
 
-1. Install google chrome driver
+2. Unzip the downloaded file.
 
-2. Open a termianl and check for google chrome version
+3. Make the ChromeDriver executable:
 
-```
-$ google-chrome --version
-```
+    ```shell
+    $ chmod +x ./chromedriver
+    ```
 
-3. Open a browser and from https://chromedriver.chromium.org/ download de compatible version
+4. Move the ChromeDriver executable to the appropriate location:
 
-4. Open a terminal, unzip the file
+    ```shell
+    $ sudo mv ./chromedriver /usr/local/share/chromedriver
+    ```
 
-```
-$ unzip ./chromedriver_linux64.zip
-```
+5. Create symbolic links:
 
-5. Make it executable
+    ```shell
+    $ sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+    $ sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+    ```
 
-```
-$ chmod +x ./chromedriver
-```
+6. Verify the installation:
 
-6. Move the file
+    ```shell
+    $ chromedriver --version
+    ```
 
-```
-$ sudo mv ./chromedriver /usr/local/share/chromedriver
-```
-7. Make a link
+## Install Additional Packages
 
-```
-$ sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+1. Install PyAutoGUI:
 
-$ sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
-```
-8. Check the version
-
-```
-$ chromedriver --version
-```
-
-# $ whereis chromedriver
-#driver_location = "/usr/bin/chromedriver"
-# $ whereis google-chrome
-#binary_location = "/usr/bin/google-chrome"
-
-#options = webdriver.ChromeOptions()
-#options.binary_location = binary_location
-
-
-#driver = webdriver.Chrome(executable_path=driver_location, chrome_options=options)
-
-
-## Instal Pyautogui
-
+    ```shell
     $ pip install pyautogui
+    ```
 
-## Install Tkinter
+2. Install Tkinter:
 
+    ```shell
     $ pip install tk
+    ```
 
+3. For Linux, install additional dependencies:
 
-## For linux install 
+    ```shell
+    $ sudo apt-get install scrot
+    $ sudo apt-get install python3-tk
+    $ sudo apt-get install python3-dev
+    ```
 
-    sudo apt-get install scrot
+## Running the Sudoku Solver
 
-    sudo apt-get install python3-tk
+1. Update the URL in the script (`SolveSudoku`) to the desired Sudoku puzzle source.
 
-    sudo apt-get install python3-dev
+2. Run the script:
+
+    ```shell
+    $ python sudoku_solver.py
+    ```
+
+3. The solved Sudoku puzzle will be printed to the console, and the solution will be automatically filled in on the Sudoku web page.
+
+That's it! You can now solve Sudoku puzzles automatically using this script. Enjoy!
